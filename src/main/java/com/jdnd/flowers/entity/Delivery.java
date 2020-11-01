@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @NamedQuery(name = "Delivery.findByName",
-    query = "aelect d from Delivery d where d.name = :name")
+    query = "select d from Delivery d where d.name = :name")
 
 @Entity
 public class Delivery {
@@ -18,7 +18,7 @@ public class Delivery {
     private Long Id;
 
     @Nationalized
-    private String recipientName;
+    private String name;
 
     @Column(name = "address_full", length = 500)
     private String address;
@@ -38,11 +38,11 @@ public class Delivery {
     }
 
     public String getRecipientName() {
-        return recipientName;
+        return name;
     }
 
-    public void setRecipientName(String recipientName) {
-        this.recipientName = recipientName;
+    public void setRecipientName(String name) {
+        this.name = name;
     }
 
     public String getAddress() {
